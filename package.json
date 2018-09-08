@@ -1,0 +1,19 @@
+{
+  "name": "um3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hristov296/um3.git"
+  },
+  "author": "Hristo Hristov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hristov296/um3/issues"
+  },
+  "homepage": "https://github.com/hristov296/um3#readme"
+}
