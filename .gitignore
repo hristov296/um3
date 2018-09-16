@@ -1,1 +1,4 @@
 node_modules/
+logs/
+config.json
+webhook.json
