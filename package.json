@@ -11,7 +11,7 @@
     "url": "git+https://github.com/hristov296/um3.git"
   },
   "author": "Hristo Hristov",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/hristov296/um3/issues"
   },
