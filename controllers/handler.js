@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 const secret = require('./../config.json').secret;
+const webhook = require('./webhook');
 
 function escapeHtml(unsafe) {
   return unsafe
@@ -36,8 +37,9 @@ exports.getRq = function(req,res) {
 exports.postRq = function(req,res) {
   res.sendStatus(200);
   if (verifyPayload(req)) {
-    req.umStatus = 'incoming hash is ok';
+    webhook.process(req.body.data);
+    req.umStatus = 'incoming hash is ok, processing webhook. ';
   } else {
-    req.umStatus = 'incoming hash != expected hash';
+    req.umStatus = 'incoming hash != expected hash. ';
   }
 }

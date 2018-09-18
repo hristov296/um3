@@ -10,6 +10,8 @@ const leaseDays = 10;
 const leaseTime = leaseDays * 24 * 60 * 60;
 const subURL = 'https://api.twitch.tv/helix/webhooks/hub';
 
+request.debug = true;
+
 let data = {
   'hub.mode': subMode,
   'hub.topic': `https://api.twitch.tv/helix/users/follows?first=1&from_id=${targetUser}`,
@@ -19,7 +21,7 @@ let data = {
 }
 let dataString = JSON.stringify(data);
 
-var options = {
+let options = {
   url: subURL,
   method: 'POST',
   body: dataString,
@@ -37,8 +39,6 @@ function callback(error, response, body) {
     console.log('error: '+error);
   }
 }
-
-request.debug = true;
 
 exports.send = function(req,res) {
   request(options,callback);
