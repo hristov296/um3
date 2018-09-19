@@ -6,24 +6,24 @@ const rfs = require('rotating-file-stream');
 const bodyParser = require('body-parser');
 const subscribe = require('./controllers/subscribe');
 const handler = require('./controllers/handler');
-// const lt = require('localtunnel');
+const lt = require('localtunnel');
 
 const port = process.env.PORT || 8080;
 const app = express();
 
-// const tunnel = lt(port,{subdomain: 'exc3ssive29'}, function(err,tunnel){
-//   if (err) {
-//     console.log(err);
-//   }
-//   tunnel.url
-//   console.log(tunnel.url)
-// });
-// tunnel.on('error', err => {
-//   // console.log(err);
-// });
-// tunnel.on('close',()=>{
-//   console.log('tunnel closed');  
-// });
+const tunnel = lt(port,{subdomain: 'exc3ssive29'}, function(err,tunnel){
+  if (err) {
+    console.log(err);
+  }
+  tunnel.url
+  console.log(tunnel.url)
+});
+tunnel.on('error', err => {
+  // console.log(err);
+});
+tunnel.on('close',()=>{
+  console.log('tunnel closed');  
+});
 
 const logDir = path.join(__dirname, 'logs');
 fs.existsSync(logDir) || fs.mkdirSync(logDir);
