@@ -4,7 +4,7 @@ const request = require('request');
 const client = config.clientid;
 const secret = config.secret;
 const subMode = 'subscribe';
-const cbURL = 'http://exc3ssive29.localtunnel.me/handler';
+const cbURL = 'https://um3.irithyll.com/handler';
 const targetUser = config.myid;
 const leaseDays = 10;
 const leaseTime = leaseDays * 24 * 60 * 60;
@@ -14,7 +14,7 @@ request.debug = true;
 
 let data = {
   'hub.mode': subMode,
-  'hub.topic': `https://api.twitch.tv/helix/users/follows?first=1&from_id=${targetUser}`,
+  'hub.topic': `https://api.twitch.tv/helix/streams?user_id=${targetUser}`,
   'hub.callback': cbURL,
   'hub.lease_seconds': leaseTime,
   'hub.secret': secret,
