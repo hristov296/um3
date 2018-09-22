@@ -10,6 +10,19 @@ const handler = require('./controllers/handler');
 const port = process.env.PORT || 8080;
 const app = express();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
+if (isProduction) {
+  const lt = require('localtunnel');
+  const tunnel = lt(port,{subdomain: 'exc3ssive29'}, function(err,tunnel){
+    if (err) {
+      console.log(err);
+    }
+    tunnel.url
+    console.log(tunnel.url)
+  });
+}
+
 const logDir = path.join(__dirname, 'logs');
 fs.existsSync(logDir) || fs.mkdirSync(logDir);
 
