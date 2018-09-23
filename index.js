@@ -12,7 +12,7 @@ const app = express();
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-if (isProduction) {
+if (!isProduction) {
   const lt = require('localtunnel');
   const tunnel = lt(port,{subdomain: 'exc3ssive29'}, function(err,tunnel){
     if (err) {
