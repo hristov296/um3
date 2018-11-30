@@ -32,12 +32,8 @@ let options = {
 };
 
 function callback(error, response, body) {
-  if (!error && response.statusCode == 200) {
-    var info = JSON.parse(body);
-    console.log(info);
-  } else {
-    console.log('error: '+error);
-  }
+  body ? console.log(JSON.parse(body)) : '';
+  error ? console.log(error) : '';
 }
 
 exports.send = function(req,res) {
